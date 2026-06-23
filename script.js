@@ -1,9 +1,23 @@
-const textareas = elemento.querySelectorAll('textarea');
+async function generar(a, b, botonReferencia) {
+    const elemento = document.getElementById(`evaluacion-container-${a}`);
+    
+    if (!elemento) {
+        console.error(`No se encontró el contenedor: evaluacion-container-${a}`);
+        alert("No se pudo encontrar el contenido a exportar.");
+        return;
+    }
+
+    if (botonReferencia) botonReferencia.style.display = 'none';
+
+    // Arreglo para guardar todos los reemplazos temporales
+    const reemplazos = [];
+
+    // --- 1. SOLUCIÓN PARA LOS TEXTAREAS (Corregido y posicionado dentro de la función) ---
+    const textareas = elemento.querySelectorAll('textarea');
     textareas.forEach(textarea => {
         const divTemporal = document.createElement('div');
         
         // Convertimos los saltos de línea (\n) en etiquetas <br> reales de HTML
-        // y escapamos caracteres especiales para evitar problemas de renderizado
         const textoConSaltos = textarea.value
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
@@ -14,7 +28,7 @@ const textareas = elemento.querySelectorAll('textarea');
 
         // Estilos obligatorios para que el DIV procese el texto como un bloque
         divTemporal.style.display = 'block';
-        divTemporal.style.whiteSpace = 'normal'; // Al usar <br>, ya no dependemos de pre-wrap
+        divTemporal.style.whiteSpace = 'normal'; 
         divTemporal.style.wordBreak = 'break-word';
         divTemporal.style.boxSizing = 'border-box';
 
@@ -38,22 +52,9 @@ const textareas = elemento.querySelectorAll('textarea');
         textarea.style.display = 'none';
         
         reemplazos.push({ original: textarea, temporal: divTemporal });
-    })
-    async function generar(a,b,botonReferencia) {
-    const elemento = document.getElementById(`evaluacion-container-${a}`);
-    
-    if (!elemento) {
-        console.error(`No se encontró el contenedor: evaluacion-container-${a}`);
-        alert("No se pudo encontrar el contenido a exportar.");
-        return;
-    }
+    });
 
-    if (botonReferencia) botonReferencia.style.display = 'none';
-
-    // Arreglo para guardar todos los reemplazos temporales
-    const reemplazos = [];
-
-    // --- 1. SOLUCIÓN PARA LOS SELECTS ---
+    // --- 2. SOLUCIÓN PARA LOS SELECTS ---
     const selects = elemento.querySelectorAll('select');
     selects.forEach(select => {
         const textoSeleccionado = select.options[select.selectedIndex].text;
@@ -77,7 +78,7 @@ const textareas = elemento.querySelectorAll('textarea');
         reemplazos.push({ original: select, temporal: spanTemporal });
     });
 
-    // --- 2. SOLUCIÓN PARA LA FECHA (ACTUALIZADA) ---
+    // --- 3. SOLUCIÓN PARA LA FECHA ---
     const elementoFecha = elemento.querySelector('.date-box') || elemento.querySelector('input[type="datetime-local"]');
     
     if (elementoFecha) {
@@ -86,36 +87,31 @@ const textareas = elemento.querySelectorAll('textarea');
         if (!textoFecha || textoFecha.trim() === "") {
             textoFecha = " "; 
         } else {
-            // Si el formato viene de un input datetime-local nativo (ej: 2026-05-02T22:04)
             if (textoFecha.includes('T')) {
                 const partes = textoFecha.split('T'); 
-                const fechaLimpia = partes[0].replace(/-/g, '/'); // Cambia guiones por diagonales
+                const fechaLimpia = partes[0].replace(/-/g, '/'); 
                 const horaLimpia = partes[1];
-                textoFecha = `${fechaLimpia}   ${horaLimpia}`; // Resultado limpio: 2026/05/02   22:04
+                textoFecha = `${fechaLimpia}   ${horaLimpia}`; 
             }
         }
 
         const spanFechaTemporal = document.createElement('span');
         spanFechaTemporal.innerText = textoFecha;
         
-        // Clonamos fuentes y colores originales
         spanFechaTemporal.style.fontFamily = window.getComputedStyle(elementoFecha).fontFamily;
         spanFechaTemporal.style.fontSize = window.getComputedStyle(elementoFecha).fontSize;
         spanFechaTemporal.style.color = window.getComputedStyle(elementoFecha).color;
         spanFechaTemporal.style.padding = window.getComputedStyle(elementoFecha).padding;
         
-        // Medimos el tamaño físico real del contenedor original en píxeles
         const dimensiones = elementoFecha.getBoundingClientRect();
         spanFechaTemporal.style.width = dimensiones.width + 'px';
         spanFechaTemporal.style.height = dimensiones.height + 'px';
         
-        // Forzamos el centrado absoluto con Flexbox (evita que se pegue a las esquinas en la imagen)
         spanFechaTemporal.style.display = 'inline-flex';
         spanFechaTemporal.style.alignItems = 'center';
         spanFechaTemporal.style.justifyContent = 'center';
         spanFechaTemporal.style.boxSizing = 'border-box';
 
-        // Insertar el reemplazo y ocultar el original
         elementoFecha.parentNode.insertBefore(spanFechaTemporal, elementoFecha);
         elementoFecha.style.display = 'none';
         reemplazos.push({ original: elementoFecha, temporal: spanFechaTemporal });
@@ -140,7 +136,7 @@ const textareas = elemento.querySelectorAll('textarea');
         console.error("Error al generar la imagen JPEG:", error);
         alert("Hubo un problema al generar la imagen del reporte.");
     } finally {
-        // --- 3. RESTAURAR TODO EL HTML ORIGINAL ---
+        // --- 4. RESTAURAR TODO EL HTML ORIGINAL ---
         reemplazos.forEach(item => {
             item.temporal.remove();
             item.original.style.display = ''; 
@@ -149,4 +145,3 @@ const textareas = elemento.querySelectorAll('textarea');
         if (botonReferencia) botonReferencia.style.display = 'block';
     }
 }
-;
