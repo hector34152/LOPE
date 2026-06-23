@@ -1,0 +1,115 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: hsl(240, 2%, 38%);
+    padding: 1px;
+    margin: 0;   
+}
+header h2 {
+    background-color: #1e2f8d;
+    color: white;
+    padding: 1rem;
+    align-items: stretch;
+    display: flex;
+    gap: 2.5rem;
+    font-size: 1.6rem;
+}
+.container { 
+    width: 8.5in;
+    height: 14.5in;
+    margin: auto;
+    background: white;
+    padding: .5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+header h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+.meta-data { 
+    display: grid;
+    width: 100vw;
+    height: 5rem;
+    grid-template-columns: 4in 4.25in;
+    gap: 10px;
+    margin: 1rem 0;
+}
+.meta-data h3 {
+    font-family:Georgia, cursive;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-style: italic;
+    font-variant: small-caps;
+    color: #b4b9b9;
+    text-align: center;
+}
+.meta-data input, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.section-title {
+    background-color: #f18b5c;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 0.9em;
+}
+label {
+    font-size: 1rem;
+    font-style: oblique;
+    font-weight: bold;
+    color: #1e2f8d;
+}
+table {
+    width: 97%;
+    margin: 0 auto;
+    table-layout: fixed; /* Esencial para poder controlar los anchos exactos */
+    border-collapse: collapse;
+}
+table thead tr th:nth-child(1) {
+    width: 20%; 
+}
+table thead tr th:nth-child(2) {
+    width: auto; 
+}
+table thead tr th:nth-child(3) {
+    width: 15%; 
+}
+textarea {
+    width: 98%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+th, td {
+    padding: 6px 4px; /* Un padding más pequeño optimiza el espacio horizontal */
+    text-align: left;
+    vertical-align: middle;
+    word-wrap: break-word; /* Evita que el texto largo desconfigure la tabla */
+
+}
+button { 
+    padding: 15px 30px;
+    background-color: #27ae60;
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; 
+}
+select {
+    font-size: 1rem;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+#black {
+    font-weight: bold;
+}
+#observaciones {
+    padding: 1rem 0;
+}

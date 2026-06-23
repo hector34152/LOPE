@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Area - FIX ZACATECAS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logoFixLlave.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div id="evaluacion-container-1" class="container">
+        <header>
+            <h2><img src="logoFixLlave.png" width="5%">EVALUACION DE LOPE EN AREAS ASIGNADAS</h2>
+            <div class="meta-data">
+                <input type="text">
+                <input type="datetime-local" >
+            </div>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoría</th>
+                    <th>Estándar de Calidad</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="section-title">
+                    <td colspan="3">Limpieza</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Productos y muebles limpios.<br>
+                        Producto con empaque en buen estado.<br>
+                        Maquinas limpias de ultima generación y en perfectas condiciones.<br>
+                        Mobiliario, graficos, accesorios y perfocel en perfectas condiciones.
+                    </td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>
+                </tr>
+                <td id="observaciones" colspan="3">
+                    <label>Observaciones:</label>
+                    <textarea rows="4"></textarea>
+                </td>
+                <tr class="section-title">
+                    <td colspan="3">ORDEN</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Producto acomodado, de frente y alineado en su centro de gravedad. <br>
+                        Producto rotado.<br>
+                        Producto careado.<br>
+                        Producto distribuido. <br>
+                        Respeta el planograma.
+                    </td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>
+                </tr>
+                <td id="observaciones" colspan="3">
+                    <label>Observaciones:</label>
+                    <textarea rows="4"></textarea>
+                </td>
+
+                <tr class="section-title">
+                    <td colspan="3">PRECIO</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Precios actuales.
+                        Etiquetas impresas, legibles, alineadas, y en buen estado.<br>
+                        La información de la etiqueta debe corresponder a la del producto.<br>
+                        Graficos, etiquetas especiales y fichas técnicas en buen estado.<br>
+                        Graficos de promociòn vigentes y en buen estado.
+                    </td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>
+                </tr>
+                <td id="observaciones" colspan="3">
+                    <label>Observaciones:</label>
+                    <textarea rows="4"></textarea>
+                </td>
+                    <tr class="section-title">
+                    <td colspan="3">EXISTENCIA</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Inventario correcto de acuerdo con la capacidad de gancho indicada en la etiqueta.<br>No debe existir ceros en la exhibición.</td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>
+                </tr> 
+                <td id="observaciones" colspan="3">
+                    <label>Observaciones:</label>
+                    <textarea rows="4"></textarea>
+                </td>
+            </tbody>
+        </table>
+        <div class="controls">
+            <button onclick="generar(1,'area',this)">Descargar Evaluación</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
