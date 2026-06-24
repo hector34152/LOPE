@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Area - FIX ZACATECAS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logoFixLlave.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div id="evaluacion-container-1" class="container">
+        <header>
+            <h2><img src="logoFixLlave.png" width="5%">EVALUACION DE ESTADO EN CAJAS DE COBRO</h2>
+            <div class="meta-data">
+                <td>
+                    <select>
+                        <option value="compliant">Caja 1</option>
+                        <option value="compliant">Caja 2</option>
+                        <option value="compliant">Caja 3</option>
+                        <option value="compliant">Caja 4</option>
+                        <option value="compliant">Caja 5</option>
+                    </select>
+                   <select>
+                        <option value="compliant">Nayeli</option>
+                        <option value="compliant">Valeria</option>
+                        <option value="compliant">Salma</option>
+                        <option value="compliant">Thalia</option>
+                        <option value="compliant">Michelle</option>
+                        <option value="compliant">Berenice</option>
+                    </select>
+
+                </td>
+            </div>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoría</th>
+                    <th>Estándar de Calidad</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+               <tr class="section-title">
+                    <td colspan="3">LIMPIEZA</td>
+                </tr>
+                <tr>
+                    <td id="black" >Equipo Electrónico</td>
+                    <td>PC, monitor, teclado, mouse y escaner libres de polvo, manchas o huellas dactilares.</td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="black">Cajones y Mueble</td>
+                    <td>Cajón de dinero y compartimentos internos limpios, sin basura, clips sueltos o polvo.</td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>                <tr>
+                    <td id="black">Superficie de Trabajo</td>
+                    <td>Área de empaque limpia y libres de manchas pegajosas.</td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>
+                <tr>
+                    <td id="black">Suelo del area</td>
+                    <td>Piso en area de caja libre de basura, tickets tirados o polvo.</td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>
+                </tr> 
+                <td id="observaciones" colspan="3">
+                    <label>Observaciones:</label>
+                    <textarea rows="4"></textarea>
+                </td>
+                <tr class="section-title"><td colspan="3">ORDEN Y SUMINISTROS</td></tr>
+                <tr>
+                    <td id="black">Bolsas Plásticas</td>
+                    <td>Bolsas organizadas por tamaño, de fácil acceso.</td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="black">Organización de Cajones</td>
+                    <td>Hojas de codigos, engrapadora, cinta y rollos termicos de repuesto ubicados exclusivamente en su lugar.</td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="black">Objetos personales</td>
+                    <td>El área de trabajo está libre de objetos personales.</td>
+                    <td><select>
+                            <option value="compliant">No aplica</option>
+                            <option value="compliant">Deficiente</option>
+                            <option value="compliant">Regular</option>
+                            <option value="compliant">Excelente</option>
+                        </select>
+                    </td>                    
+                </tr>
+                <td colspan="3">
+                    <label>Observaciones:</label>
+                    <textarea rows="4"></textarea>
+                </td>
+            </tbody>
+        </table>
+        <div class="controls">
+            <button onclick="generar(1,'caja',this)">Descargar Evaluación</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
